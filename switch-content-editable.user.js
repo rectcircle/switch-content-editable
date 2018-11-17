@@ -5,7 +5,7 @@
 // @downloadURL  https://raw.githubusercontent.com/rectcircle/switch-content-editable/master/switch-content-editable.user.js
 // @namespace    https://github.com/rectcircle/switch-content-editable
 // @license      MIT
-// @version      1.0.0
+// @version      1.0.1
 // @description         open/close content editable （by alt+e）
 // @description:zh      打开或者关闭页面可编辑属性 （通过快捷键alt+e）
 // @author       Rectcircle <rectcircle96@gmail.com>
@@ -68,6 +68,9 @@
 	function changeContentEditable(){
 		var newStatus = document.body.contentEditable=="true"?false:true;
 		document.body.contentEditable = newStatus;
+		if (newStatus){
+			document.body.focus();
+		}
 		tipDiv.contentEditable = "false";
 		showTips(newStatus);
 	}
